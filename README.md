@@ -104,17 +104,16 @@
 
 #### Toggle
 
-    $wp_customize->add_control( new Epsilon_Control_Toggle(
-                                  $wp_customize,
-                                  'epsilon_control_toggle',
-                                  array(
-                                    'type'        => 'epsilon-toggle',
-                                    'label'       => esc_html__( 'Epsilon Toggle Label', 'text-domain' ),
-                                    'description' => esc_html__( 'Epsilon Toggle Description', 'text-domain' ),
-                                    'section'     => 'section_id',
-                                  )
-                                )
-                              );
+Epsilon_Customizer::add_field(
+  'field_id',
+  array(
+    'type'        => 'epsilon-toggle',
+    'label'       => esc_html__( 'Epsilon Toggle Label', 'text-domain' ),
+    'description' => esc_html__( 'Epsilon Toggle Description', 'text-domain' ),
+    'section'     => 'section_id',
+    'default'     => true,
+  )
+);
                               
 #### Range Slider
 
