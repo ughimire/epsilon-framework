@@ -1,7 +1,7 @@
 # Epsilon Framework v1.2.7 (documentation to be updated)
 
 ## 1. Getting started
-### Available controls
+### Available fields
 > [Toggle](https://github.com/MachoThemes/epsilon-framework#toggle)
 
 > [Range slider](https://github.com/MachoThemes/epsilon-framework#range-slider)
@@ -195,7 +195,7 @@ Collect all the options ID and get an instance of the Typography class (this is 
       color: %2$s;
     }
     
-> 3. Add the control
+> 3. Add the field
 
     $wp_customize->add_control( new Epsilon_Control_Color_Scheme(
                                   $wp_customize,
@@ -326,35 +326,44 @@ Collect all the options ID and get an instance of the Typography class (this is 
 
 #### Layouts
 
-    $wp_customize->add_control( new Epsilon_Control_Layouts(
-                                  $wp_customize,
-                                  'epsilon_control_layouts',
-                                  array(
-                                    'section'      => 'section_id',
-                                    'priority'     => 0,
-                                    'layouts'      => array(
-                                      1 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/one-column.png',
-                                      2 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/one-column.png',
-                                    ),
-                                    'default' => array(
-                                      'columnsCount' => 2,
-                                      'columns' => array(
-                                      	array(
-                                      		'index' => 1,
-                                      		'span' => 8,
-                                      	),
-                                      	array(
-                                      		'index' => 1,
-                                      		'span' => 4,
-                                      	),
-                                      ),
-                                    ),
-                                    'min_span' => 2,
-                                    'label'       => esc_html__( 'Label', 'text-domain' ),
-                                    'description' => esc_html__( 'Description.', 'text-domain' ),
-                                  )
-                                )
-                              );
+  Epsilon_Customizer::add_field(
+    'field_id',
+    array(
+      'type'     => 'epsilon-layouts',
+      'section'  => 'section_id',
+      'priority' => 0,
+      'layouts'  => array(
+        1 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/one-column.png',
+        2 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/two-column.png',
+        3 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/three-column.png',
+        4 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/four-column.png',
+      ),
+      'default'  => array(
+        'columnsCount' => 4,
+        'columns'      => array(
+          array(
+            'index' => 1,
+            'span'  => 3,
+          ),
+          array(
+            'index' => 2,
+            'span'  => 3,
+          ),
+          array(
+            'index' => 3,
+            'span'  => 3,
+          ),
+          array(
+            'index' => 4,
+            'span'  => 3,
+          ),
+        ),
+      ),
+      'min_span' => 2,
+      'label'       => esc_html__( 'Label', 'text-domain' ),
+      'description' => esc_html__( 'Description.', 'text-domain' ),
+    )
+  );
                               
 #### Color Picker               
     $wp_customize->add_control( new Epsilon_Control_Color_Picker(
