@@ -124,8 +124,8 @@ Epsilon_Customizer::add_field(
       'description' => esc_html__( 'Epsilon Range Description', 'text-domain' ),
       'choices'     => array(
         'min'  => 1,
-        'max'  => 2,
-        'step' => 1,
+        'max'  => 10,
+        'step' => 2,
       ),
       'section'     => 'section_id',
     )
@@ -396,17 +396,19 @@ Collect all the options ID and get an instance of the Typography class (this is 
     )
   );
                               
-#### Color Picker               
-    $wp_customize->add_control( new Epsilon_Control_Color_Picker(
-                                  $wp_customize,
-                                  'epsilon_control_color_picker',
-                                  array(
-                                    'section'      => 'section_id',
-                                    'priority'     => 0,
-																		'mode' => 'hex' // can be 'hex' or 'rgba'
-                                  )
-                                )
-                              );
+#### Color Picker   
+            
+Epsilon_Customizer::add_field(
+  'naturemag_enable_author_name',
+  array(
+    'type' => 'epsilon-color-picker',
+    'section' => 'naturemag_blog_section',
+    'label'       => esc_html__( 'Label', 'text-domain' ),
+    'description' => esc_html__( 'Description.', 'text-domain' ), 'naturemag' ),
+    'mode' => 'rgba', // can be 'hex' or 'rgba'
+    'default'     => '#ffffff',
+  )
+);
 
 
 ### Epsilon Notifications
