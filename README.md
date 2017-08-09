@@ -51,18 +51,17 @@
 
 #### Upsell pro section
 
-    $wp_customize->add_section(
-      new Epsilon_Section_Pro(
-        $wp_customize,
-        'epsilon-section-pro',
-        array(
-          'title'       => esc_html__( 'Section title', 'text-domain' ),
-          'button_text' => esc_html__( 'Button label', 'text-domain' ),
-          'button_url'  => esc_url_raw( # ),
-          'priority'    => 0
-        )
-      )
-    );
+Epsilon_Customizer::add_field(
+  'field_id',
+  array(
+    'type'        => 'epsilon-section-pro',
+    'section'     => 'section_id',
+    'button_url'  => esc_url_raw( '#' ),
+    'button_text' => esc_html__( 'Button Label', 'text-domain' ),
+    'allowed'     => true,
+
+  )
+);
 
 > Themes can disable the Upsell Pro section by adding `add_filter ('epsilon_upsell_section_display', '__return_false');` in functions.php
 
