@@ -1,3 +1,42 @@
+v1.2.9
+	- Reworked parts of repeater fields
+	
+v1.2.8
+	- Select multiple now shows selected items
+
+v1.2.7
+	- Bug fixing in typography controls
+	- Icon picker has been redesigned
+	- Possibility to add different types of sections through our wrapper
+	- Theme check was failing, even though sanitization callback was present
+
+v1.2.6
+	- Performance improvements for color scheme control
+	- Performance improvements for typography controls
+	- Added support for section repeater inline shortcuts
+
+v1.2.5
+	- Epsilon Admin didn't had the wpurls object available
+
+v1.2.4
+	- Recommended actions fixes ( JS was not pointing "where it should" )
+	- Fixed textdomains
+	- Fixed text-editor initiation
+
+v1.2.3
+	- Added support for section-repeater/repeater limit
+
+v1.2.2
+	-Sanitizers were missing
+
+v1.2.1
+	- Radio fields fix
+
+v1.2.0
+	- Added section repeater
+	- Added field repeater
+	- Added custom fields
+
 v1.1.0
 	- Layouts control
 
