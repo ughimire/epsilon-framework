@@ -330,28 +330,25 @@ Collect all the options ID and get an instance of the Typography class (this is 
     
 #### Upsell
 
-    $wp_customize->add_control( new Epsilon_Control_Upsell(
-                                  $wp_customize,
-                                  'epsilon_control_upsell',
-                                  array(
-                                    'section'      => 'section_id',
-                                    'priority'     => 0,
-                                    'options'      => array(
-                                      esc_html__( 'First Option', 'text-domain' ),
-                                    ),
-                                    'requirements' => array(
-                                      esc_html__( 'Premium version description.', 'text-domain' ),
-                                    ),
-                                    'button_url'   => esc_url_raw( # ),
-                                    'button_text'  => esc_html__( 'Button Label', 'text-domain' ),
-
-                                    'second_button_url'  => esc_url_raw( # ),
-                                    'second_button_text' => esc_html__( 'Button Label', 'text-domain' ),
-
-                                    'separator' => '- or -'
-                                  )
-                                )
-                              );
+  Epsilon_Customizer::add_field(
+    'field_id',  
+    array(
+      'type'        => 'epsilon-upsell',
+      'section'      => 'section_id',
+      'priority'     => 0,
+      'options'      => array(
+        esc_html__( 'First Option', 'text-domain' ),
+      ),
+      'requirements' => array(
+        esc_html__( 'Premium version description.', 'text-domain' ),
+      ),
+      'button_url'   => esc_url_raw( '#' ),
+      'button_text'  => esc_html__( 'Button Label', 'text-domain' ),
+      'second_button_url'  => esc_url_raw( '#' ),
+      'second_button_text' => esc_html__( 'Button Label', 'text-domain' ),
+      'separator' => '-',
+    )
+  );
                               
 > Themes can disable the Upsell Pro Control by adding `add_filter ('epsilon_upsell_control_display', '__return_false');` in functions.php
 
@@ -398,17 +395,17 @@ Collect all the options ID and get an instance of the Typography class (this is 
                               
 #### Color Picker   
 
-Epsilon_Customizer::add_field(
-  'field_id',
-  array(
-    'type' => 'epsilon-color-picker',
-    'section' => 'section_id',
-    'label'       => esc_html__( 'Label', 'text-domain' ),
-    'description' => esc_html__( 'Description.', 'text-domain' ), 'naturemag' ),
-    'mode' => 'rgba', // can be 'hex' or 'rgba'
-    'default'     => '#ffffff',
-  )
-);
+  Epsilon_Customizer::add_field(
+    'field_id',
+    array(
+      'type' => 'epsilon-color-picker',
+      'section' => 'section_id',
+      'label'       => esc_html__( 'Label', 'text-domain' ),
+      'description' => esc_html__( 'Description.', 'text-domain' ), 'naturemag' ),
+      'mode' => 'rgba', // can be 'hex' or 'rgba'
+      'default'     => '#ffffff',
+    )
+  );
 
 
 ### Epsilon Notifications
