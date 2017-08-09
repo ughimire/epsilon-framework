@@ -136,38 +136,38 @@
                                );
 
 #### Typography
-    $wp_customize->add_control( new Epsilon_Control_Typography(
-                                  $wp_customize,
-                                  'epsilon_control_typography',
-                                  array(
-                                    'section'     => 'section_id',
-                                    'label'       => esc_html__( 'Epsilon Typography Label', 'text-domain' ),
-                                    'description' => esc_html__( 'Epsilon Typography Description', 'text-domain' ),
-                                    'stylesheet'  => 'theme-style',
-                                    'choices'     => array(
-                                      'font-family',
-                                      'font-weight',
-                                      'font-style',
-                                      'font-size',
-                                      'line-height',
-                                      'letter-spacing',
-                                    ),
-                                    'selectors'   => array(
-                                      '.entry-content h1',
-                                      '.entry-content h2',
-                                      '.entry-content h3',
-                                      '.entry-content h4',
-                                      '.entry-content h5',
-                                      '.entry-content h6'
-                                    ),
-                                    'font_defaults'   => array(
-                                      'font-size' 		=> '18',
-                                      'line-height' 	=> '22',
-                                      'letter-spacing' 	=> '0',
-                                    ),
-                                  )
-                                )
-                              );
+  Epsilon_Customizer::add_field(
+    'field_id',
+    array(
+      'type'          => 'epsilon-typography',
+      'transport'     => 'postMessage',
+      'label'         => esc_html__( 'Epsilon Typography Label', 'text-domain' ),
+      'description'   => esc_html__( 'Epsilon Typography Description', 'text-domain' ),
+      'section'       => 'section_id',
+      'stylesheet'    => 'theme-style',
+      'choices'       => array(
+        'font-family',
+        'font-weight',
+        'font-style',
+        'font-size',
+        'line-height',
+        'letter-spacing',
+      ),
+      'selectors'    => array(
+        '.entry-content h1',
+        '.entry-content h2',
+        '.entry-content h3',
+        '.entry-content h4',
+        '.entry-content h5',
+        '.entry-content h6',
+      ),
+      'font_defaults' => array(
+        'font-size'      => '14',
+        'line-height'    => '26',
+        'letter-spacing' => '0',
+      ),
+    )
+  );
 
 Collect all the options ID and get an instance of the Typography class (this is used to render the styles in frontend)
 
