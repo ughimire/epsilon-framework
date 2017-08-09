@@ -197,45 +197,79 @@ Collect all the options ID and get an instance of the Typography class (this is 
     
 > 3. Add the field
 
-    $wp_customize->add_control( new Epsilon_Control_Color_Scheme(
-                                  $wp_customize,
-                                  'epsilon_control_color_scheme',
-                                  array(
-                                    'label'       => esc_html__( 'Epsilon Color Scheme Label', 'text-domain' ),
-                                    'description' => esc_html__( 'Epsilon Color Scheme Description', 'text-domain' ),
-                                    'type'        => 'epsilon-color-scheme',
-                                    'priority'    => 0,
-                                    'default'     => 'red',
-                                    'section'     => 'section_id',
-                                    'choices'     => array(
-                                      array(
-                                        'id'     => 'red',
-                                        'name'   => 'Default',
-                                        'colors' => array(
-                                          'epsilon_accent_color'               => '#ff3d2e',
-                                          'epsilon_text_color'                 => '#333333',
-                                          'epsilon_content_widget_title_color' => '#ff3d2e',
-                                          'epsilon_footer_bg_color'            => '#272f32',
-                                          'epsilon_footer_widget_title_color'  => '#ffffff',
-                                          'epsilon_footer_links_color'         => '#ffffff'
-                                        ),
-                                      ),
-                                      array(
-                                        'id'     => 'yellow',
-                                        'name'   => 'Yellow',
-                                        'colors' => array(
-                                          'epsilon_accent_color'               => '#f3950f',
-                                          'epsilon_text_color'                 => '#333333',
-                                          'epsilon_content_widget_title_color' => '#f3950f',
-                                          'epsilon_footer_bg_color'            => '#272f32',
-                                          'epsilon_footer_widget_title_color'  => '#ffffff',
-                                          'epsilon_footer_links_color'         => '#ffffff'
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                )
-                              );
+  Epsilon_Customizer::add_field(
+    'field_id',
+    array(
+      'label'       => esc_html__( 'Epsilon Color Scheme Label', 'text-domain' ),
+      'description' => esc_html__( 'Epsilon Color Scheme Description', 'text-domain' ),
+      'type'        => 'epsilon-color-scheme',
+      'priority'    => 0,
+      'default'     => 'red',
+      'section'     => 'section_id',
+      'choices'     => array(
+        array(
+          'id'     => 'red',
+          'name'   => 'Default',
+          'colors' => array(
+            'epsilon_accent_color'               => '#c69c6d',
+            'epsilon_text_color'                 => '#7f7f7f',
+            'epsilon_content_widget_title_color' => '#414444',
+            'epsilon_footer_bg_color'            => '#302227',
+            'epsilon_footer_widget_title_color'  => '#ffffff',
+            'epsilon_footer_links_color'         => '#c8b494',
+          ),
+        ),
+        array(
+          'id'     => 'yellow',
+          'name'   => 'Yellow',
+          'colors' => array(
+            'epsilon_accent_color'               => '#f3950f',
+            'epsilon_text_color'                 => '#7f7f7f',
+            'epsilon_content_widget_title_color' => '#414444',
+            'epsilon_footer_bg_color'            => '#302227',
+            'epsilon_footer_widget_title_color'  => '#ffffff',
+            'epsilon_footer_links_color'         => '#ffe5aa',
+          ),
+        ),
+        array(
+          'id'     => 'green',
+          'name'   => 'Green',
+          'colors' => array(
+            'epsilon_accent_color'               => '#097d3d',
+            'epsilon_text_color'                 => '#7f7f7f',
+            'epsilon_content_widget_title_color' => '#414444',
+            'epsilon_footer_bg_color'            => '#302227',
+            'epsilon_footer_widget_title_color'  => '#ffffff',
+            'epsilon_footer_links_color'         => '#3e7c5e',
+          ),
+        ),
+        array(
+          'id'     => 'blue',
+          'name'   => 'Blue',
+          'colors' => array(
+            'epsilon_accent_color'               => '#298dd2',
+            'epsilon_text_color'                 => '#7f7f7f',
+            'epsilon_content_widget_title_color' => '#414444',
+            'epsilon_footer_bg_color'            => '#302227',
+            'epsilon_footer_widget_title_color'  => '#ffffff',
+            'epsilon_footer_links_color'         => '#28c4d6',
+          ),
+        ),
+        array(
+          'id'     => 'magenta',
+          'name'   => 'Magenta',
+          'colors' => array(
+            'epsilon_accent_color'               => '#ae1062',
+            'epsilon_text_color'                 => '#7f7f7f',
+            'epsilon_content_widget_title_color' => '#414444',
+            'epsilon_footer_bg_color'            => '#302227',
+            'epsilon_footer_widget_title_color'  => '#ffffff',
+            'epsilon_footer_links_color'         => '#ad889b',
+          ),
+        ),
+      ),
+    )
+  );
                           
 > 4. Instantiate the frontend part
 
