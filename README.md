@@ -117,24 +117,23 @@ Epsilon_Customizer::add_field(
                               
 #### Range Slider
 
-    $wp_customize->add_control( new Epsilon_Control_Slider(
-                                  $wp_customize,
-                                  'epsilon_control_range',
-                                  array(
-                                    'type'        => 'epsilon-slider',
-                                    'label'       => esc_html__( 'Epsilon Range Label', 'text-domain' ),
-                                    'description' => esc_html__( 'Epsilon Range Description', 'text-domain' ),
-                                    'choices'     => array(
-                                      'min'  => 10,
-                                      'max'  => 55,
-                                      'step' => 5,
-                                    ),
-                                    'section'     => 'section_id',
-                                  )
-                                )
-                               );
+  Epsilon_Customizer::add_field(
+    'field_id',
+    array(
+      'type'        => 'epsilon-slider',
+      'label'       => esc_html__( 'Epsilon Range Label', 'text-domain' ),
+      'description' => esc_html__( 'Epsilon Range Description', 'text-domain' ),
+      'choices'     => array(
+        'min'  => 1,
+        'max'  => 2,
+        'step' => 1,
+      ),
+      'section'     => 'section_id',
+    )
+  );
 
 #### Typography
+
   Epsilon_Customizer::add_field(
     'field_id',
     array(
