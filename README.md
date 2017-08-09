@@ -51,17 +51,17 @@
 
 #### Upsell pro section
 
-Epsilon_Customizer::add_field(
-  'field_id',
-  array(
-    'type'        => 'epsilon-section-pro',
-    'section'     => 'section_id',
-    'button_url'  => esc_url_raw( '#' ),
-    'button_text' => esc_html__( 'Button Label', 'text-domain' ),
-    'allowed'     => true,
+	Epsilon_Customizer::add_field(
+	  'field_id',
+	  array(
+	    'type'        => 'epsilon-section-pro',
+	    'section'     => 'section_id',
+	    'button_url'  => esc_url_raw( # ),
+	    'button_text' => esc_html__( 'Button Label', 'text-domain' ),
+	    'allowed'     => true,
 
-  )
-);
+	  )
+	);
 
 > Themes can disable the Upsell Pro section by adding `add_filter ('epsilon_upsell_section_display', '__return_false');` in functions.php
 
@@ -103,68 +103,68 @@ Epsilon_Customizer::add_field(
 
 #### Toggle
 
-Epsilon_Customizer::add_field(
-  'field_id',
-  array(
-    'type'        => 'epsilon-toggle',
-    'label'       => esc_html__( 'Epsilon Toggle Label', 'text-domain' ),
-    'description' => esc_html__( 'Epsilon Toggle Description', 'text-domain' ),
-    'section'     => 'section_id',
-    'default'     => true,
-  )
-);
+	Epsilon_Customizer::add_field(
+	  'field_id',
+	  array(
+	    'type'        => 'epsilon-toggle',
+	    'label'       => esc_html__( 'Epsilon Toggle Label', 'text-domain' ),
+	    'description' => esc_html__( 'Epsilon Toggle Description', 'text-domain' ),
+	    'section'     => 'section_id',
+	    'default'     => true,
+	  )
+	);
                               
 #### Range Slider
 
-  Epsilon_Customizer::add_field(
-    'field_id',
-    array(
-      'type'        => 'epsilon-slider',
-      'label'       => esc_html__( 'Epsilon Range Label', 'text-domain' ),
-      'description' => esc_html__( 'Epsilon Range Description', 'text-domain' ),
-      'choices'     => array(
-        'min'  => 1,
-        'max'  => 10,
-        'step' => 2,
-      ),
-      'section'     => 'section_id',
-    )
-  );
+	  Epsilon_Customizer::add_field(
+	    'field_id',
+	    array(
+	      'type'        => 'epsilon-slider',
+	      'label'       => esc_html__( 'Epsilon Range Label', 'text-domain' ),
+	      'description' => esc_html__( 'Epsilon Range Description', 'text-domain' ),
+	      'choices'     => array(
+		'min'  => 1,
+		'max'  => 10,
+		'step' => 2,
+	      ),
+	      'section'     => 'section_id',
+	    )
+	  );
 
 #### Typography
 
-  Epsilon_Customizer::add_field(
-    'field_id',
-    array(
-      'type'          => 'epsilon-typography',
-      'transport'     => 'postMessage',
-      'label'         => esc_html__( 'Epsilon Typography Label', 'text-domain' ),
-      'description'   => esc_html__( 'Epsilon Typography Description', 'text-domain' ),
-      'section'       => 'section_id',
-      'stylesheet'    => 'theme-style',
-      'choices'       => array(
-        'font-family',
-        'font-weight',
-        'font-style',
-        'font-size',
-        'line-height',
-        'letter-spacing',
-      ),
-      'selectors'    => array(
-        '.entry-content h1',
-        '.entry-content h2',
-        '.entry-content h3',
-        '.entry-content h4',
-        '.entry-content h5',
-        '.entry-content h6',
-      ),
-      'font_defaults' => array(
-        'font-size'      => '14',
-        'line-height'    => '26',
-        'letter-spacing' => '0',
-      ),
-    )
-  );
+	  Epsilon_Customizer::add_field(
+	    'field_id',
+	    array(
+	      'type'          => 'epsilon-typography',
+	      'transport'     => 'postMessage',
+	      'label'         => esc_html__( 'Epsilon Typography Label', 'text-domain' ),
+	      'description'   => esc_html__( 'Epsilon Typography Description', 'text-domain' ),
+	      'section'       => 'section_id',
+	      'stylesheet'    => 'theme-style',
+	      'choices'       => array(
+		'font-family',
+		'font-weight',
+		'font-style',
+		'font-size',
+		'line-height',
+		'letter-spacing',
+	      ),
+	      'selectors'    => array(
+		'.entry-content h1',
+		'.entry-content h2',
+		'.entry-content h3',
+		'.entry-content h4',
+		'.entry-content h5',
+		'.entry-content h6',
+	      ),
+	      'font_defaults' => array(
+		'font-size'      => '14',
+		'line-height'    => '26',
+		'letter-spacing' => '0',
+	      ),
+	    )
+	  );
 
 Collect all the options ID and get an instance of the Typography class (this is used to render the styles in frontend)
 
@@ -194,218 +194,218 @@ Collect all the options ID and get an instance of the Typography class (this is 
     
 > 3. Add the field
 
-  Epsilon_Customizer::add_field(
-    'field_id',
-    array(
-      'label'       => esc_html__( 'Epsilon Color Scheme Label', 'text-domain' ),
-      'description' => esc_html__( 'Epsilon Color Scheme Description', 'text-domain' ),
-      'type'        => 'epsilon-color-scheme',
-      'priority'    => 0,
-      'default'     => 'red',
-      'section'     => 'section_id',
-      'choices'     => array(
-        array(
-          'id'     => 'red',
-          'name'   => 'Default',
-          'colors' => array(
-            'epsilon_accent_color'               => '#c69c6d',
-            'epsilon_text_color'                 => '#7f7f7f',
-            'epsilon_content_widget_title_color' => '#414444',
-            'epsilon_footer_bg_color'            => '#302227',
-            'epsilon_footer_widget_title_color'  => '#ffffff',
-            'epsilon_footer_links_color'         => '#c8b494',
-          ),
-        ),
-        array(
-          'id'     => 'yellow',
-          'name'   => 'Yellow',
-          'colors' => array(
-            'epsilon_accent_color'               => '#f3950f',
-            'epsilon_text_color'                 => '#7f7f7f',
-            'epsilon_content_widget_title_color' => '#414444',
-            'epsilon_footer_bg_color'            => '#302227',
-            'epsilon_footer_widget_title_color'  => '#ffffff',
-            'epsilon_footer_links_color'         => '#ffe5aa',
-          ),
-        ),
-        array(
-          'id'     => 'green',
-          'name'   => 'Green',
-          'colors' => array(
-            'epsilon_accent_color'               => '#097d3d',
-            'epsilon_text_color'                 => '#7f7f7f',
-            'epsilon_content_widget_title_color' => '#414444',
-            'epsilon_footer_bg_color'            => '#302227',
-            'epsilon_footer_widget_title_color'  => '#ffffff',
-            'epsilon_footer_links_color'         => '#3e7c5e',
-          ),
-        ),
-        array(
-          'id'     => 'blue',
-          'name'   => 'Blue',
-          'colors' => array(
-            'epsilon_accent_color'               => '#298dd2',
-            'epsilon_text_color'                 => '#7f7f7f',
-            'epsilon_content_widget_title_color' => '#414444',
-            'epsilon_footer_bg_color'            => '#302227',
-            'epsilon_footer_widget_title_color'  => '#ffffff',
-            'epsilon_footer_links_color'         => '#28c4d6',
-          ),
-        ),
-        array(
-          'id'     => 'magenta',
-          'name'   => 'Magenta',
-          'colors' => array(
-            'epsilon_accent_color'               => '#ae1062',
-            'epsilon_text_color'                 => '#7f7f7f',
-            'epsilon_content_widget_title_color' => '#414444',
-            'epsilon_footer_bg_color'            => '#302227',
-            'epsilon_footer_widget_title_color'  => '#ffffff',
-            'epsilon_footer_links_color'         => '#ad889b',
-          ),
-        ),
-      ),
-    )
-  );
+		  Epsilon_Customizer::add_field(
+		    'field_id',
+		    array(
+		      'label'       => esc_html__( 'Epsilon Color Scheme Label', 'text-domain' ),
+		      'description' => esc_html__( 'Epsilon Color Scheme Description', 'text-domain' ),
+		      'type'        => 'epsilon-color-scheme',
+		      'priority'    => 0,
+		      'default'     => 'red',
+		      'section'     => 'section_id',
+		      'choices'     => array(
+			array(
+			  'id'     => 'red',
+			  'name'   => 'Default',
+			  'colors' => array(
+			    'epsilon_accent_color'               => '#c69c6d',
+			    'epsilon_text_color'                 => '#7f7f7f',
+			    'epsilon_content_widget_title_color' => '#414444',
+			    'epsilon_footer_bg_color'            => '#302227',
+			    'epsilon_footer_widget_title_color'  => '#ffffff',
+			    'epsilon_footer_links_color'         => '#c8b494',
+			  ),
+			),
+			array(
+			  'id'     => 'yellow',
+			  'name'   => 'Yellow',
+			  'colors' => array(
+			    'epsilon_accent_color'               => '#f3950f',
+			    'epsilon_text_color'                 => '#7f7f7f',
+			    'epsilon_content_widget_title_color' => '#414444',
+			    'epsilon_footer_bg_color'            => '#302227',
+			    'epsilon_footer_widget_title_color'  => '#ffffff',
+			    'epsilon_footer_links_color'         => '#ffe5aa',
+			  ),
+			),
+			array(
+			  'id'     => 'green',
+			  'name'   => 'Green',
+			  'colors' => array(
+			    'epsilon_accent_color'               => '#097d3d',
+			    'epsilon_text_color'                 => '#7f7f7f',
+			    'epsilon_content_widget_title_color' => '#414444',
+			    'epsilon_footer_bg_color'            => '#302227',
+			    'epsilon_footer_widget_title_color'  => '#ffffff',
+			    'epsilon_footer_links_color'         => '#3e7c5e',
+			  ),
+			),
+			array(
+			  'id'     => 'blue',
+			  'name'   => 'Blue',
+			  'colors' => array(
+			    'epsilon_accent_color'               => '#298dd2',
+			    'epsilon_text_color'                 => '#7f7f7f',
+			    'epsilon_content_widget_title_color' => '#414444',
+			    'epsilon_footer_bg_color'            => '#302227',
+			    'epsilon_footer_widget_title_color'  => '#ffffff',
+			    'epsilon_footer_links_color'         => '#28c4d6',
+			  ),
+			),
+			array(
+			  'id'     => 'magenta',
+			  'name'   => 'Magenta',
+			  'colors' => array(
+			    'epsilon_accent_color'               => '#ae1062',
+			    'epsilon_text_color'                 => '#7f7f7f',
+			    'epsilon_content_widget_title_color' => '#414444',
+			    'epsilon_footer_bg_color'            => '#302227',
+			    'epsilon_footer_widget_title_color'  => '#ffffff',
+			    'epsilon_footer_links_color'         => '#ad889b',
+			  ),
+			),
+		      ),
+		    )
+		  );
                           
 > 4. Instantiate the frontend part
 
-    $handler = 'theme-style';
+		    $handler = 'theme-style';
 
-    $args = array(
-      'fields' => array(
-        'epsilon_accent_color' => array(
-          'label'       => __( 'Accent Color', 'text-domain' ),
-          'description' => __( 'The main color used for links, buttons, and more.', 'text-domain' ),
-          'default'     => '#ff3d2e',
-          'section'     => 'section_id',
-          'hover-state' => true,
-        ),
+		    $args = array(
+		      'fields' => array(
+			'epsilon_accent_color' => array(
+			  'label'       => __( 'Accent Color', 'text-domain' ),
+			  'description' => __( 'The main color used for links, buttons, and more.', 'text-domain' ),
+			  'default'     => '#ff3d2e',
+			  'section'     => 'section_id',
+			  'hover-state' => true,
+			),
 
-        'epsilon_text_color' => array(
-          'label'       => __( 'Text Color', 'text-domain' ),
-          'description' => __( 'The color used for paragraphs.', 'text-domain' ),
-          'default'     => '#333333',
-          'section'     => 'section_id',
-          'hover-state' => false,
-        ),
+			'epsilon_text_color' => array(
+			  'label'       => __( 'Text Color', 'text-domain' ),
+			  'description' => __( 'The color used for paragraphs.', 'text-domain' ),
+			  'default'     => '#333333',
+			  'section'     => 'section_id',
+			  'hover-state' => false,
+			),
 
-        'epsilon_content_widget_title_color' => array(
-          'label'       => __( 'Content Widget Title Color', 'text-domain' ),
-          'description' => __( 'The color used for content widgets title.', 'text-domain' ),
-          'default'     => '#ff3d2e',
-          'section'     => 'section_id',
-          'hover-state' => false,
-        ),
+			'epsilon_content_widget_title_color' => array(
+			  'label'       => __( 'Content Widget Title Color', 'text-domain' ),
+			  'description' => __( 'The color used for content widgets title.', 'text-domain' ),
+			  'default'     => '#ff3d2e',
+			  'section'     => 'section_id',
+			  'hover-state' => false,
+			),
 
-        'epsilon_footer_bg_color' => array(
-          'label'       => __( 'Footer Background Color', 'text-domain' ),
-          'description' => __( 'The color used for the footer background.', 'text-domain' ),
-          'default'     => '#272f32',
-          'section'     => 'section_id',
-          'hover-state' => false,
-        ),
+			'epsilon_footer_bg_color' => array(
+			  'label'       => __( 'Footer Background Color', 'text-domain' ),
+			  'description' => __( 'The color used for the footer background.', 'text-domain' ),
+			  'default'     => '#272f32',
+			  'section'     => 'section_id',
+			  'hover-state' => false,
+			),
 
-        'epsilon_footer_widget_title_color' => array(
-          'label'       => __( 'Footer Widget Title Color', 'text-domain' ),
-          'description' => __( 'The color used for the footer widgets title.', 'text-domain' ),
-          'default'     => '#ffffff',
-          'section'     => 'section_id',
-          'hover-state' => false,
-        ),
+			'epsilon_footer_widget_title_color' => array(
+			  'label'       => __( 'Footer Widget Title Color', 'text-domain' ),
+			  'description' => __( 'The color used for the footer widgets title.', 'text-domain' ),
+			  'default'     => '#ffffff',
+			  'section'     => 'section_id',
+			  'hover-state' => false,
+			),
 
-        'epsilon_footer_links_color' => array(
-          'label'       => __( 'Footer Links Color', 'text-domain' ),
-          'description' => __( 'The color used for the footer links.', 'text-domain' ),
-          'default'     => '#ffffff',
-          'section'     => 'section_id',
-          'hover-state' => true,
-        )
-      ),
+			'epsilon_footer_links_color' => array(
+			  'label'       => __( 'Footer Links Color', 'text-domain' ),
+			  'description' => __( 'The color used for the footer links.', 'text-domain' ),
+			  'default'     => '#ffffff',
+			  'section'     => 'section_id',
+			  'hover-state' => true,
+			)
+		      ),
 
-      'css' => Epsilon_Color_Scheme::load_css_overrides( get_template_directory() . '/assets/css/style-overrides.css' )
-    );
+		      'css' => Epsilon_Color_Scheme::load_css_overrides( get_template_directory() . '/assets/css/style-overrides.css' )
+		    );
 
-    Epsilon_Color_Scheme::get_instance( $handler, $args );
+		    Epsilon_Color_Scheme::get_instance( $handler, $args );
     
 #### Upsell
 
-  Epsilon_Customizer::add_field(
-    'field_id',  
-    array(
-      'type'        => 'epsilon-upsell',
-      'section'      => 'section_id',
-      'priority'     => 0,
-      'options'      => array(
-        esc_html__( 'First Option', 'text-domain' ),
-      ),
-      'requirements' => array(
-        esc_html__( 'Premium version description.', 'text-domain' ),
-      ),
-      'button_url'   => esc_url_raw( '#' ),
-      'button_text'  => esc_html__( 'Button Label', 'text-domain' ),
-      'second_button_url'  => esc_url_raw( '#' ),
-      'second_button_text' => esc_html__( 'Button Label', 'text-domain' ),
-      'separator' => '-',
-    )
-  );
+	  Epsilon_Customizer::add_field(
+	    'field_id',  
+	    array(
+	      'type'        => 'epsilon-upsell',
+	      'section'      => 'section_id',
+	      'priority'     => 0,
+	      'options'      => array(
+		esc_html__( 'First Option', 'text-domain' ),
+	      ),
+	      'requirements' => array(
+		esc_html__( 'Premium version description.', 'text-domain' ),
+	      ),
+	      'button_url'   => esc_url_raw( '#' ),
+	      'button_text'  => esc_html__( 'Button Label', 'text-domain' ),
+	      'second_button_url'  => esc_url_raw( '#' ),
+	      'second_button_text' => esc_html__( 'Button Label', 'text-domain' ),
+	      'separator' => '-',
+	    )
+	  );
                               
 > Themes can disable the Upsell Pro Control by adding `add_filter ('epsilon_upsell_control_display', '__return_false');` in functions.php
 
 #### Layouts
 
-  Epsilon_Customizer::add_field(
-    'field_id',
-    array(
-      'type'     => 'epsilon-layouts',
-      'section'  => 'section_id',
-      'priority' => 0,
-      'layouts'  => array(
-        1 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/one-column.png',
-        2 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/two-column.png',
-        3 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/three-column.png',
-        4 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/four-column.png',
-      ),
-      'default'  => array(
-        'columnsCount' => 4,
-        'columns'      => array(
-          array(
-            'index' => 1,
-            'span'  => 3,
-          ),
-          array(
-            'index' => 2,
-            'span'  => 3,
-          ),
-          array(
-            'index' => 3,
-            'span'  => 3,
-          ),
-          array(
-            'index' => 4,
-            'span'  => 3,
-          ),
-        ),
-      ),
-      'min_span' => 2,
-      'label'       => esc_html__( 'Label', 'text-domain' ),
-      'description' => esc_html__( 'Description.', 'text-domain' ),
-    )
-  );
+	  Epsilon_Customizer::add_field(
+	    'field_id',
+	    array(
+	      'type'     => 'epsilon-layouts',
+	      'section'  => 'section_id',
+	      'priority' => 0,
+	      'layouts'  => array(
+		1 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/one-column.png',
+		2 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/two-column.png',
+		3 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/three-column.png',
+		4 => get_template_directory_uri() . '/inc/libraries/epsilon-framework/assets/img/four-column.png',
+	      ),
+	      'default'  => array(
+		'columnsCount' => 4,
+		'columns'      => array(
+		  array(
+		    'index' => 1,
+		    'span'  => 3,
+		  ),
+		  array(
+		    'index' => 2,
+		    'span'  => 3,
+		  ),
+		  array(
+		    'index' => 3,
+		    'span'  => 3,
+		  ),
+		  array(
+		    'index' => 4,
+		    'span'  => 3,
+		  ),
+		),
+	      ),
+	      'min_span' => 2,
+	      'label'       => esc_html__( 'Label', 'text-domain' ),
+	      'description' => esc_html__( 'Description.', 'text-domain' ),
+	    )
+	  );
                               
 #### Color Picker   
 
-  Epsilon_Customizer::add_field(
-    'field_id',
-    array(
-      'type' => 'epsilon-color-picker',
-      'section' => 'section_id',
-      'label'       => esc_html__( 'Label', 'text-domain' ),
-      'description' => esc_html__( 'Description.', 'text-domain' ), 'naturemag' ),
-      'mode' => 'rgba', // can be 'hex' or 'rgba'
-      'default'     => '#ffffff',
-    )
-  );
+	  Epsilon_Customizer::add_field(
+	    'field_id',
+	    array(
+	      'type' => 'epsilon-color-picker',
+	      'section' => 'section_id',
+	      'label'       => esc_html__( 'Label', 'text-domain' ),
+	      'description' => esc_html__( 'Description.', 'text-domain' ), 'naturemag' ),
+	      'mode' => 'rgba', // can be 'hex' or 'rgba'
+	      'default'     => '#ffffff',
+	    )
+	  );
 
 
 ### Epsilon Notifications
