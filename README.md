@@ -415,7 +415,7 @@ Basically a "helper" function to add persistant dismissable notices, you need to
 	$notifications = Epsilon_Notifications::get_instance();
 	$notifications->add_notice(
 		array(
-			'id'      => 'newsmag_dismissable_notice', // This id needs to be unique, so we know which notice we can hide
+			'id'      => 'notification_id', // This id needs to be unique, so we know which notice we can hide
 			'type'    => 'updated notice', // This is the class applied to the notice
 			'message' => '<p>you are awesome</p>' // The text written in the notice, accepts basic HTML tags ( escaped with wp_kses_post)
 		)
