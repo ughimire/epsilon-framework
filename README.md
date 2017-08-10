@@ -56,55 +56,56 @@
 
 #### Register Panels
 
-$panels = array(
-	array(
-		'id'   => 'panel_id',
-		'args' => array(
-			'capability'     => 'edit_theme_options',
-			'theme_supports' => '',
-			'title'          => esc_html__( 'First Panel Name', 'text-domain' ),
-			'priority' => 1,
+	$panels = array(
+		array(
+			'id'   => 'panel_id',
+			'args' => array(
+				'capability'     => 'edit_theme_options',
+				'theme_supports' => '',
+				'title'          => esc_html__( 'First Panel Name', 'text-domain' ),
+				'priority' => 1,
+			),
 		),
-	),
-	array(
-		'id'   => 'panel_id',
-		'args' => array(
-			'capability'     => 'edit_theme_options',
-			'theme_supports' => '',
-			'title'          => esc_html__( 'Second Panel Name', 'text-domain' ),
-			'priority' => 2,
+		array(
+			'id'   => 'panel_id',
+			'args' => array(
+				'capability'     => 'edit_theme_options',
+				'theme_supports' => '',
+				'title'          => esc_html__( 'Second Panel Name', 'text-domain' ),
+				'priority' => 2,
+			),
 		),
-	),
-);
+	);
 
 #### Register Sections
 
-$sections = array(
-	array(
-		'id'   => 'section_id',
-		'args' => array(
-			'title'    => esc_html__( 'Section title', 'text-domain' ),
-			'panel'    => 'panel_id',
-			'priority' => 1,
+	$sections = array(
+		array(
+			'id'   => 'section_id',
+			'args' => array(
+				'title'    => esc_html__( 'Section title', 'text-domain' ),
+				'panel'    => 'panel_id',
+				'priority' => 1,
+			),
 		),
-	),
-	array(
-		'id'   => 'section_id',
-		'args' => array(
-			'title'    => esc_html__( 'Section title', 'text-domain' ),
-			'panel'    => 'panel_id',
-			'priority' => 2,
+		array(
+			'id'   => 'section_id',
+			'args' => array(
+				'title'    => esc_html__( 'Section title', 'text-domain' ),
+				'panel'    => 'panel_id',
+				'priority' => 2,
+			),
 		),
-	),
-);
+	);
+
 #### Add Sections and Panels
 
-$collection = array(
-	'panel'   => $panels,
-	'section' => $sections,
-);
+	$collection = array(
+		'panel'   => $panels,
+		'section' => $sections,
+	);
 
-Epsilon_Customizer::add_multiple( $collection );
+	Epsilon_Customizer::add_multiple( $collection );
 
 ### Available sections
 #### Upsell pro section
@@ -124,36 +125,36 @@ Epsilon_Customizer::add_multiple( $collection );
 
 #### Recommended action section
 
-array(
-	'id'   => 'section_id',
-	'args' => array(
-		'type'        => 'epsilon-section-recommended-actions',
-		'title'       => esc_html__( 'Section title', 'text-domain' ),
-      	'social_text' => esc_html__( 'Social text - displayed when no plugins, actions left :', 'text-domain' ),
-      	'plugin_text' => esc_html__( 'Plugin text - displayed when no actions left', 'text-domain' ),
-      	'actions'     => array(
-			array(
-				"id"          => 'theme_id',
-				"title"       => esc_html__('Action title', 'text-domain'),
-				"description" => esc_html__('Action description', 'text-domain'),
-				"check"       => function(),
-                "plugin_slug" => false,
-                // Plugin slug is used to create an installation/activation link
-            )
-        ),
-        'plugins'                      => array(
-            'kiwi-social-share'        => array( 'recommended' => false ),
-            'modula-best-grid-gallery' => array( 'recommended' => true )
-        ),
-        'theme_specific_option'        => $theme_slug . '_show_required_actions',
-        'theme_specific_plugin_option' => $theme_slug . '_show_required_plugins',
-        'facebook'                     => 'https://www.facebook.com/machothemes',
-        'twitter'                      => 'https://twitter.com/MachoThemez',
-        'wp_review'                    => false,
-        'priority'                     => 0,
-		'panel'    => 'panel_id',
+	array(
+		'id'   => 'section_id',
+		'args' => array(
+			'type'        => 'epsilon-section-recommended-actions',
+			'title'       => esc_html__( 'Section title', 'text-domain' ),
+		'social_text' => esc_html__( 'Social text - displayed when no plugins, actions left :', 'text-domain' ),
+		'plugin_text' => esc_html__( 'Plugin text - displayed when no actions left', 'text-domain' ),
+		'actions'     => array(
+				array(
+					"id"          => 'theme_id',
+					"title"       => esc_html__('Action title', 'text-domain'),
+					"description" => esc_html__('Action description', 'text-domain'),
+					"check"       => function(),
+			"plugin_slug" => false,
+			// Plugin slug is used to create an installation/activation link
+		    )
+		),
+		'plugins'                      => array(
+		    'kiwi-social-share'        => array( 'recommended' => false ),
+		    'modula-best-grid-gallery' => array( 'recommended' => true )
+		),
+		'theme_specific_option'        => $theme_slug . '_show_required_actions',
+		'theme_specific_plugin_option' => $theme_slug . '_show_required_plugins',
+		'facebook'                     => 'https://www.facebook.com/machothemes',
+		'twitter'                      => 'https://twitter.com/MachoThemez',
+		'wp_review'                    => false,
+		'priority'                     => 0,
+			'panel'    => 'panel_id',
+		),
 	),
-),
     
 ### Controls
 
