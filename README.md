@@ -16,11 +16,16 @@
 
 > [Color Picker](https://github.com/MachoThemes/epsilon-framework#color-picker)
 
+### Sections and Panels
+> [Register Panels](https://github.com/MachoThemes/epsilon-framework#register-panels)
+
+> [Register Sections](https://github.com/MachoThemes/epsilon-framework#register-sections)
+
+> [Add Sections and Panels](https://github.com/MachoThemes/epsilon-framework#add-sections-and-panels)
 ### Available sections
 > [Upsell pro section](https://github.com/MachoThemes/epsilon-framework#upsell-pro-section)
 
 > [Recommended action section](https://github.com/MachoThemes/epsilon-framework#recommended-action-section)
-
 ### Helpers
 
 > [Demo generator](https://github)
@@ -47,57 +52,108 @@
     $ git submodule update --remote
   
 ## 3. Using Epsilon
-### Sections
+### Sections and Panels
 
+#### Register Panels
+
+$panels = array(
+	array(
+		'id'   => 'panel_id',
+		'args' => array(
+			'capability'     => 'edit_theme_options',
+			'theme_supports' => '',
+			'title'          => esc_html__( 'First Panel Name', 'text-domain' ),
+			'priority' => 1,
+		),
+	),
+	array(
+		'id'   => 'panel_id',
+		'args' => array(
+			'capability'     => 'edit_theme_options',
+			'theme_supports' => '',
+			'title'          => esc_html__( 'Second Panel Name', 'text-domain' ),
+			'priority' => 2,
+		),
+	),
+);
+
+#### Register Sections
+
+$sections = array(
+	array(
+		'id'   => 'section_id',
+		'args' => array(
+			'title'    => esc_html__( 'Section title', 'text-domain' ),
+			'panel'    => 'panel_id',
+			'priority' => 1,
+		),
+	),
+	array(
+		'id'   => 'section_id',
+		'args' => array(
+			'title'    => esc_html__( 'Section title', 'text-domain' ),
+			'panel'    => 'panel_id',
+			'priority' => 2,
+		),
+	),
+);
+#### Add Sections and Panels
+
+$collection = array(
+	'panel'   => $panels,
+	'section' => $sections,
+);
+
+Epsilon_Customizer::add_multiple( $collection );
+
+### Available sections
 #### Upsell pro section
 
-	Epsilon_Customizer::add_field(
-	  'field_id',
-	  array(
-	    'type'        => 'epsilon-section-pro',
-	    'section'     => 'section_id',
-	    'button_url'  => esc_url_raw( # ),
-	    'button_text' => esc_html__( 'Button Label', 'text-domain' ),
-	    'allowed'     => true,
-
-	  )
-	);
+	array(
+		'id'   => 'section_id',
+		'args' => array(
+			'type'    => 'epsilon-section-pro',
+			'panel'    => 'panel_id',
+			'title'       => esc_html__( 'Section title', 'text-domain' ),
+          	'button_text' => esc_html__( 'Button label', 'text-domain' ),
+          	'button_url'  => esc_url_raw( # ),
+		),
+	),
 
 > Themes can disable the Upsell Pro section by adding `add_filter ('epsilon_upsell_section_display', '__return_false');` in functions.php
 
 #### Recommended action section
 
-    $wp_customize->add_section(
-      new Epsilon_Section_Recommended_Actions(
-        $wp_customize,
-        'epsilon_recomended_section',
-        array(
-          'title'                        => esc_html__( 'Section title', 'text-domain' ),
-          'social_text'                  => esc_html__( 'Social text - displayed when no plugins, actions left :', 'text-domain' ),
-          'plugin_text'                  => esc_html__( 'Plugin text - displayed when no actions left', 'text-domain' ),
-          'actions'                      => array(
-                                              array(
-                                                "id"          => 'theme-action-specific-id',
-                                                "title"       => esc_html__('Action title', 'text-domain'),
-                                                "description" => esc_html__('Action description', 'text-domain'),
-                                                "check"       => function(),
-                                                "plugin_slug" => false
-                                                // Plugin slug is used to create an installation/activation link
-                                              )
-                                           ),
-          'plugins'                      => array(
-                                              'kiwi-social-share'        => array( 'recommended' => false ),
-                                              'modula-best-grid-gallery' => array( 'recommended' => true )
-                                            ),
-          'theme_specific_option'        => $theme_slug . '_show_required_actions',
-          'theme_specific_plugin_option' => $theme_slug . '_show_required_plugins',
-          'facebook'                     => 'https://www.facebook.com/machothemes',
-          'twitter'                      => 'https://twitter.com/MachoThemez',
-          'wp_review'                    => false,
-          'priority'                     => 0
-        )
-      )
-    );
+array(
+	'id'   => 'section_id',
+	'args' => array(
+		'type'        => 'epsilon-section-recommended-actions',
+		'title'       => esc_html__( 'Section title', 'text-domain' ),
+      	'social_text' => esc_html__( 'Social text - displayed when no plugins, actions left :', 'text-domain' ),
+      	'plugin_text' => esc_html__( 'Plugin text - displayed when no actions left', 'text-domain' ),
+      	'actions'     => array(
+			array(
+				"id"          => 'theme_id',
+				"title"       => esc_html__('Action title', 'text-domain'),
+				"description" => esc_html__('Action description', 'text-domain'),
+				"check"       => function(),
+                "plugin_slug" => false,
+                // Plugin slug is used to create an installation/activation link
+            )
+        ),
+        'plugins'                      => array(
+            'kiwi-social-share'        => array( 'recommended' => false ),
+            'modula-best-grid-gallery' => array( 'recommended' => true )
+        ),
+        'theme_specific_option'        => $theme_slug . '_show_required_actions',
+        'theme_specific_plugin_option' => $theme_slug . '_show_required_plugins',
+        'facebook'                     => 'https://www.facebook.com/machothemes',
+        'twitter'                      => 'https://twitter.com/MachoThemez',
+        'wp_review'                    => false,
+        'priority'                     => 0,
+		'panel'    => 'panel_id',
+	),
+),
     
 ### Controls
 
